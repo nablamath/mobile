@@ -21,20 +21,21 @@ class PDFViewScreen extends StatefulWidget {
 
 // PDF view screen state
 class _PDFViewScreenState extends State<PDFViewScreen> {
-  late PDFViewController controller;
-  int index = 0;
-  int pages = 0;
+  late PDFViewController _controller;
+  int _index = 0;
+  int _pages = 0;
+  bool _isReady = false;
 
   @override
   Widget build(BuildContext context) {
     final path = widget.file.path;
     final name = basename(path);
-    final text = '${index + 1} / $pages';
+    final text = '${_index + 1} / $_pages';
 
     return Scaffold(
       appBar: AppBar(
         title: Text(name),
-        actions: pages >= 2
+        actions: _pages >= 2
           ? [
             Center(
               child: Text(text),
@@ -42,32 +43,46 @@ class _PDFViewScreenState extends State<PDFViewScreen> {
             IconButton(
               icon: const Icon(Icons.chevron_left, size: 32),
               onPressed: () {
-                if (index > 0) { controller.setPage(index - 1); }
+                if (_index > 0) { _controller.setPage(_index - 1); }
               },
             ),
             IconButton(
               icon: const Icon(Icons.chevron_right, size: 32),
               onPressed: () {
-                if (index < pages - 1) { controller.setPage(index + 1); }
+                if (_index < _pages - 1) { _controller.setPage(_index + 1); }
               },
             ),
           ]
           : null,
       ),
-      body: PDFView(
-        filePath: path,
-        autoSpacing: false,
-        swipeHorizontal: true,
-        onRender: (pages) {
-          setState(() => { this.pages = pages! });
-        },
-        onViewCreated: (controller) {
-          setState(() => { this.controller = controller });
-        },
-        onPageChanged: (index, _) {
-          setState(() => { this.index = index! });
-        }
-      ),
+      body: Stack(
+        children: [
+          PDFView(
+            filePath: path,
+            autoSpacing: false,
+            swipeHorizontal: true,
+            onRender: (pages) {
+              setState(() {
+                _pages = pages!;
+                _isReady = true;
+              });
+            },
+            onViewCreated: (controller) {
+              setState(() {
+                _controller = controller;
+              });
+            },
+            onPageChanged: (index, _) {
+              setState(() {
+                _index = index!;
+              });
+            },
+          ),
+          _isReady
+            ? const Offstage()
+            : const Center(child: CircularProgressIndicator()),
+        ],
+      )
     );
   }
 }

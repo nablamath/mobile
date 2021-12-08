@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 /* ------------------------ division ------------------------ */
 
-// Primary button component
-class PrimaryButtonComponent extends StatelessWidget {
-  const PrimaryButtonComponent({
+// Primary button widget
+class PrimaryButtonWidget extends StatelessWidget {
+  const PrimaryButtonWidget({
     Key? key,
     required this.text,
     required this.onPressed,
@@ -19,7 +19,13 @@ class PrimaryButtonComponent extends StatelessWidget {
     style: ElevatedButton.styleFrom(
       minimumSize: const Size.fromHeight(50),
     ),
-    child: Text(text, style: const TextStyle(fontSize: 20)),
+    child: Text(
+      text,
+      style: const TextStyle(
+        fontSize: 20,
+        color: Colors.white,
+      )
+    ),
     onPressed: onPressed,
   );
 }
