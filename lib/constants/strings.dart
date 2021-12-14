@@ -1,2 +1,2 @@
 // Strings
-const stringTitle = "Nablamath";
+const String stringTitle = 'Nablamath';

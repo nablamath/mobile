@@ -1,2 +1,2 @@
 // Dimensions
-const paddingDefault = 16.0;
+const double paddingDefault = 16.0;
