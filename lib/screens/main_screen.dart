@@ -20,10 +20,12 @@ class MainScreen extends StatelessWidget {
         title: const Text(stringTitle),
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(paddingDefault),
-          child: Column(
-            children: courses.map((e) => CourseItemWidget(code: e['code'])).toList(),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(paddingDefault),
+            child: Column(
+              children: courses.map((e) => CourseItemWidget(code: e['code'], name: e['name'])).toList(),
+            ),
           ),
         ),
       ),
