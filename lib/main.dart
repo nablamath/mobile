@@ -1,14 +1,12 @@
 // Import
 import 'package:flutter/material.dart';
-import 'package:nablamath/constants/strings.dart';
-import 'package:nablamath/screens/main_screen.dart';
+import 'package:nablamath/constants/constants.dart';
+import 'package:nablamath/screens/screens.dart';
 import 'package:nablamath/theme.dart';
 
-/* ------------------------ division ------------------------ */
-
 // Application
-class NablamathApplication extends StatelessWidget {
-  const NablamathApplication({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +20,5 @@ class NablamathApplication extends StatelessWidget {
   }
 }
 
-/* ------------------------ division ------------------------ */
-
 // Main function
-void main() => runApp(const NablamathApplication());
+void main() => runApp(const MyApp());

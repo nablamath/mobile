@@ -5,8 +5,6 @@ import 'package:nablamath/constants/colors.dart';
 import 'package:nablamath/constants/dimensions.dart';
 import 'package:nablamath/screens/pdf_view_screen.dart';
 
-/* ------------------------ division ------------------------ */
-
 // Course item widget
 class CourseItemWidget extends StatelessWidget {
   const CourseItemWidget({

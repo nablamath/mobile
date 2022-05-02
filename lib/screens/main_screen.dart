@@ -1,11 +1,7 @@
 // Import
 import 'package:flutter/material.dart';
-import 'package:nablamath/constants/courses.dart';
-import 'package:nablamath/constants/dimensions.dart';
-import 'package:nablamath/constants/strings.dart';
-import 'package:nablamath/widgets/course_item.dart';
-
-/* ------------------------ division ------------------------ */
+import 'package:nablamath/constants/constants.dart';
+import 'package:nablamath/widgets/widgets.dart';
 
 // Main screen
 class MainScreen extends StatelessWidget {

@@ -1,8 +1,6 @@
 // Import
 import 'package:flutter/material.dart';
 
-/* ------------------------ division ------------------------ */
-
 // Colors
 const Color colorPrimary = Color(0xFF5C8C93);
 const Color colorPrimaryLight = Color(0xFFCEDCDE);

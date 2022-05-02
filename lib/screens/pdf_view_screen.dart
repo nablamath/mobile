@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:path/path.dart';
 
-/* ------------------------ division ------------------------ */
-
 // PDF view screen
 class PDFViewScreen extends StatefulWidget {
   const PDFViewScreen({
